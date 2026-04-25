@@ -2,9 +2,9 @@
   <div class="py-8">
     <div class="text-center mb-16">
       <h1 class="text-5xl md:text-6xl font-black bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-cyan-400 dark:to-blue-500 tracking-tight animate-fade-in-up">
-        Antigravity Propulsion
+        ApexLanka
       </h1>
-      <p class="mt-4 text-xl text-gray-600 dark:text-gray-400">Discover the next generation of tech.</p>
+      <p class="mt-4 text-xl text-gray-600 dark:text-gray-400">Premium tailoring and embroidery machines for professionals and enthusiasts.</p>
     </div>
 
     <div v-if="loading" class="flex justify-center items-center py-20">
@@ -32,6 +32,7 @@ import { ref, onMounted } from 'vue'
 import BaseCard from '@/components/ui/BaseCard.vue'
 import { useCartStore } from '@/stores/cart'
 import type { Product } from '@/types'
+import { mockTailoringMachines } from '@/data/products'
 
 const cartStore = useCartStore()
 const products = ref<Product[]>([])
@@ -40,10 +41,9 @@ const error = ref('')
 
 onMounted(async () => {
   try {
-    const response = await fetch('https://dummyjson.com/products?limit=20')
-    if (!response.ok) throw new Error('Failed to fetch products')
-    const data = await response.json()
-    products.value = data.products
+    // Simulate network delay
+    await new Promise(resolve => setTimeout(resolve, 800))
+    products.value = mockTailoringMachines
   } catch (e: any) {
     error.value = e.message || 'An error occurred'
   } finally {

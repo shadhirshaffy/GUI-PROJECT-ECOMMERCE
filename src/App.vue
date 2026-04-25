@@ -9,9 +9,16 @@
 </template>
 
 <script setup lang="ts">
-import { ref, provide } from 'vue'
+import { ref, provide, onMounted } from 'vue'
 import TheNavbar from '@/components/layout/TheNavbar.vue'
 import CartModal from '@/components/features/CartModal.vue'
+import { useDarkMode } from '@/composables/useDarkMode'
+
+const { initTheme } = useDarkMode()
+
+onMounted(() => {
+  initTheme()
+})
 
 const isCartOpen = ref(false)
 provide('isCartOpen', isCartOpen)

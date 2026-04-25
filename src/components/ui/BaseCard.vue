@@ -2,8 +2,8 @@
   <div class="group flex flex-col justify-between overflow-hidden rounded-2xl p-4
               bg-white/50 backdrop-blur-md border border-white/40 
               shadow-[0_8px_32px_rgba(31,38,135,0.1)] 
-              dark:bg-slate-800/40 dark:border-slate-700/50 dark:shadow-[0_8px_32px_rgba(0,0,0,0.4)]
-              transition-all duration-300 animate-levitate hover:shadow-[0_12px_40px_rgba(79,70,229,0.2)] dark:hover:shadow-[0_12px_40px_rgba(34,211,238,0.2)]">
+              dark:bg-slate-800/40 dark:border-cyan-500/30 dark:shadow-[0_8px_32px_rgba(6,182,212,0.3)]
+              transition-all duration-300 animate-levitate hover:shadow-[0_12px_40px_rgba(79,70,229,0.2)] dark:hover:shadow-[0_12px_40px_rgba(6,182,212,0.6)]">
     
     <!-- Image Wrapper -->
     <div class="relative h-48 w-full overflow-hidden rounded-xl bg-gray-100 dark:bg-slate-800">

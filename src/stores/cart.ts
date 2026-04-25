@@ -3,10 +3,10 @@ import { ref, watch, computed } from 'vue'
 import type { Product, CartItem } from '@/types'
 
 export const useCartStore = defineStore('cart', () => {
-  const items = ref<CartItem[]>(JSON.parse(localStorage.getItem('antigravity-cart') || '[]'))
+  const items = ref<CartItem[]>(JSON.parse(localStorage.getItem('apexlanka-cart') || '[]'))
 
   watch(items, (newItems) => {
-    localStorage.setItem('antigravity-cart', JSON.stringify(newItems))
+    localStorage.setItem('apexlanka-cart', JSON.stringify(newItems))
   }, { deep: true })
 
   const addToCart = (product: Product) => {
