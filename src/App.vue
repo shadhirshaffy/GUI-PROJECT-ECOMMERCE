@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-screen bg-gray-50 dark:bg-slate-900 transition-colors duration-300">
-    <TheNavbar />
-    <main class="container mx-auto px-4 py-8">
+    <Header />
+    <main class="w-full">
       <router-view />
     </main>
     <CartModal v-if="isCartOpen" @close="isCartOpen = false" />
@@ -10,7 +10,7 @@
 
 <script setup lang="ts">
 import { ref, provide, onMounted } from 'vue'
-import TheNavbar from '@/components/layout/TheNavbar.vue'
+import Header from '@/components/layout/Header.vue'
 import CartModal from '@/components/features/CartModal.vue'
 import { useDarkMode } from '@/composables/useDarkMode'
 

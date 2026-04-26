@@ -1,13 +1,16 @@
 <template>
-  <div class="py-8">
-    <div class="text-center mb-16">
-      <h1 class="text-5xl md:text-6xl font-black bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-cyan-400 dark:to-blue-500 tracking-tight animate-fade-in-up">
-        ApexLanka
-      </h1>
-      <p class="mt-4 text-xl text-gray-600 dark:text-gray-400">Premium tailoring and embroidery machines for professionals and enthusiasts.</p>
-    </div>
+  <div class="w-full">
+    <Hero />
+    
+    <div class="container mx-auto px-4 py-16">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl md:text-5xl font-black text-slate-900 dark:text-white tracking-tight">
+          Featured <span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-cyan-400 dark:to-blue-500">Products</span>
+        </h2>
+        <p class="mt-4 text-xl text-gray-600 dark:text-gray-400">Premium machines engineered for professional applications.</p>
+      </div>
 
-    <div v-if="loading" class="flex justify-center items-center py-20">
+      <div v-if="loading" class="flex justify-center items-center py-20">
       <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600 dark:border-cyan-400"></div>
     </div>
 
@@ -24,11 +27,13 @@
         :style="{ animationDelay: `${index * 0.1}s` }"
       />
     </div>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
+import Hero from '@/components/ui/Hero.vue'
 import BaseCard from '@/components/ui/BaseCard.vue'
 import { useCartStore } from '@/stores/cart'
 import type { Product } from '@/types'
