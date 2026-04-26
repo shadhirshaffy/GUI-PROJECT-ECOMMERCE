@@ -11,7 +11,7 @@ export const mockTailoringMachines: Product[] = [
     stock: 45,
     brand: "Singer",
     category: "Sewing Machine",
-    thumbnail: "https://images.unsplash.com/photo-1620603766627-74291f0c2e36?q=80&w=600&auto=format&fit=crop",
+    thumbnail: "https://picsum.photos/seed/singer1/600/400",
     images: []
   },
   {
@@ -24,7 +24,7 @@ export const mockTailoringMachines: Product[] = [
     stock: 20,
     brand: "Brother",
     category: "Sewing & Quilting",
-    thumbnail: "https://images.unsplash.com/photo-1594966779435-021b3d68bc86?q=80&w=600&auto=format&fit=crop",
+    thumbnail: "https://picsum.photos/seed/brother2/600/400",
     images: []
   },
   {
@@ -37,7 +37,7 @@ export const mockTailoringMachines: Product[] = [
     stock: 12,
     brand: "Juki",
     category: "Industrial",
-    thumbnail: "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?q=80&w=600&auto=format&fit=crop",
+    thumbnail: "https://picsum.photos/seed/juki3/600/400",
     images: []
   },
   {
@@ -50,7 +50,7 @@ export const mockTailoringMachines: Product[] = [
     stock: 30,
     brand: "Janome",
     category: "Sewing Machine",
-    thumbnail: "https://images.unsplash.com/photo-1620603766627-74291f0c2e36?q=80&w=600&auto=format&fit=crop",
+    thumbnail: "https://picsum.photos/seed/janome4/600/400",
     images: []
   },
   {
@@ -63,7 +63,7 @@ export const mockTailoringMachines: Product[] = [
     stock: 50,
     brand: "Brother",
     category: "Overlock / Serger",
-    thumbnail: "https://images.unsplash.com/photo-1594966779435-021b3d68bc86?q=80&w=600&auto=format&fit=crop",
+    thumbnail: "https://picsum.photos/seed/serger5/600/400",
     images: []
   },
   {
@@ -76,7 +76,7 @@ export const mockTailoringMachines: Product[] = [
     stock: 8,
     brand: "Bernina",
     category: "Premium Sewing",
-    thumbnail: "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?q=80&w=600&auto=format&fit=crop",
+    thumbnail: "https://picsum.photos/seed/bernina6/600/400",
     images: []
   },
   {
@@ -89,7 +89,7 @@ export const mockTailoringMachines: Product[] = [
     stock: 15,
     brand: "Singer",
     category: "Computerized",
-    thumbnail: "https://images.unsplash.com/photo-1620603766627-74291f0c2e36?q=80&w=600&auto=format&fit=crop",
+    thumbnail: "https://picsum.photos/seed/quantum7/600/400",
     images: []
   },
   {
@@ -102,7 +102,189 @@ export const mockTailoringMachines: Product[] = [
     stock: 22,
     brand: "Pfaff",
     category: "Portable",
-    thumbnail: "https://images.unsplash.com/photo-1594966779435-021b3d68bc86?q=80&w=600&auto=format&fit=crop",
+    thumbnail: "https://picsum.photos/seed/pfaff8/600/400",
+    images: []
+  },
+  {
+    id: 9,
+    title: "Antigravity Levitation Core X-1",
+    description: "Experimental commercial-grade levitation engine capable of lifting up to 500kg with zero friction.",
+    price: 8500.00,
+    discountPercentage: 12,
+    rating: 5.0,
+    stock: 3,
+    brand: "ApexLanka Labs",
+    category: "Antigravity Engine",
+    thumbnail: "https://picsum.photos/seed/antigrav9/600/400",
+    images: []
+  },
+  {
+    id: 10,
+    title: "Magnetic Field Stabilizer M-4",
+    description: "Essential component for keeping your antigravity engines running smoothly and preventing temporal drift.",
+    price: 1250.00,
+    discountPercentage: 0,
+    rating: 4.8,
+    stock: 10,
+    brand: "ApexLanka Labs",
+    category: "Parts",
+    thumbnail: "https://picsum.photos/seed/stabilizer10/600/400",
+    images: []
+  },
+  {
+    id: 11,
+    title: "Ion Propulsion Thruster Kit",
+    description: "DIY ion propulsion kit for enthusiasts wanting to build their own hover vehicles.",
+    price: 3200.00,
+    discountPercentage: 5,
+    rating: 4.6,
+    stock: 7,
+    brand: "Creative Tech",
+    category: "Propulsion",
+    thumbnail: "https://picsum.photos/seed/thruster11/600/400",
+    images: []
+  },
+  {
+    id: 12,
+    title: "Quantum Cooling System",
+    description: "High-efficiency cooling system required for running commercial grade antigravity engines 24/7.",
+    price: 4500.00,
+    discountPercentage: 15,
+    rating: 4.9,
+    stock: 5,
+    brand: "ApexLanka Labs",
+    category: "Cooling",
+    thumbnail: "https://picsum.photos/seed/cooling12/600/400",
+    images: []
+  },
+  {
+    id: 13,
+    title: "Juki DDL-8700 1-Needle Lockstitch",
+    description: "The standard for 1-needle straight stitching in professional tailoring and garment factories.",
+    price: 850.00,
+    discountPercentage: 0,
+    rating: 4.9,
+    stock: 20,
+    brand: "Juki",
+    category: "Lockstitch",
+    thumbnail: "https://picsum.photos/seed/ddl8700/600/400",
+    images: []
+  },
+  {
+    id: 14,
+    title: "Juki MO-6700 Overlock Machine",
+    description: "High-speed overlock / safety stitch machine for finishing edges and seams with precision.",
+    price: 1150.00,
+    discountPercentage: 5,
+    rating: 4.8,
+    stock: 15,
+    brand: "Juki",
+    category: "Overlock / Serger",
+    thumbnail: "https://picsum.photos/seed/mo6700/600/400",
+    images: []
+  },
+  {
+    id: 15,
+    title: "Juki MO-6800 High-speed Overlock",
+    description: "Advanced overlock / safety stitch machine for industrial-scale garment finishing.",
+    price: 1450.00,
+    discountPercentage: 0,
+    rating: 4.9,
+    stock: 10,
+    brand: "Juki",
+    category: "Overlock / Serger",
+    thumbnail: "https://picsum.photos/seed/mo6800/600/400",
+    images: []
+  },
+  {
+    id: 16,
+    title: "Industrial Zigzag Machine",
+    description: "Versatile zigzag machine used for elastic attachment and intricate decorative stitching.",
+    price: 1300.00,
+    discountPercentage: 10,
+    rating: 4.7,
+    stock: 8,
+    brand: "Generic",
+    category: "Zigzag",
+    thumbnail: "https://picsum.photos/seed/zigzag15/600/400",
+    images: []
+  },
+  {
+    id: 17,
+    title: "Juki LBH Series Buttonholing",
+    description: "Specialized industrial machine for creating clean, perfectly sized button slots.",
+    price: 3200.00,
+    discountPercentage: 15,
+    rating: 4.9,
+    stock: 4,
+    brand: "Juki",
+    category: "Specialized",
+    thumbnail: "https://picsum.photos/seed/lbh16/600/400",
+    images: []
+  },
+  {
+    id: 18,
+    title: "Industrial Button Sewing Machine",
+    description: "Specifically designed for high-volume, secure attachment of buttons to garments.",
+    price: 1850.00,
+    discountPercentage: 0,
+    rating: 4.8,
+    stock: 6,
+    brand: "Generic",
+    category: "Specialized",
+    thumbnail: "https://picsum.photos/seed/button17/600/400",
+    images: []
+  },
+  {
+    id: 19,
+    title: "Juki LK Series Bartacking",
+    description: "Heavy-duty bartacking machine for reinforcing stress points like pockets and belt loops.",
+    price: 2400.00,
+    discountPercentage: 5,
+    rating: 4.9,
+    stock: 5,
+    brand: "Juki",
+    category: "Specialized",
+    thumbnail: "https://picsum.photos/seed/lk18/600/400",
+    images: []
+  },
+  {
+    id: 20,
+    title: "Industrial Chainstitch & Coverstitch",
+    description: "Perfect for creating flexible hems on stretchy knit fabrics and activewear.",
+    price: 2100.00,
+    discountPercentage: 8,
+    rating: 4.8,
+    stock: 7,
+    brand: "Generic",
+    category: "Coverstitch",
+    thumbnail: "https://picsum.photos/seed/chain19/600/400",
+    images: []
+  },
+  {
+    id: 21,
+    title: "ZOJE Power Saving Lockstitch Machine MCZJA6000P-G",
+    description: "Product Code: MCZJA6000P-G. A high-efficiency power saving lockstitch machine.",
+    price: 114999.00,
+    discountPercentage: 5.00,
+    rating: 0,
+    stock: 0,
+    brand: "ZOJE",
+    category: "Lockstitch",
+    thumbnail: "/zoje-mczja6000p-g.jpg",
+    images: []
+  },
+  {
+    id: 22,
+    title: "ZOJE High Speed Lockstitch Machine MCZJ8500G-PS With Power Saving Motor",
+    description: "Product Code: MCZJ8500G-PS. High speed lockstitch machine with power saving motor.",
+    price: 98799.00,
+    discountPercentage: 5.00,
+    rating: 0,
+    stock: 10,
+    brand: "ZOJE",
+    category: "Lockstitch",
+    thumbnail: "/zoje-mczj8500g-ps.jpg",
     images: []
   }
 ];
