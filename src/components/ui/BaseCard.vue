@@ -6,9 +6,27 @@
               transition-all duration-300 animate-levitate hover:shadow-[0_12px_40px_rgba(79,70,229,0.2)] dark:hover:shadow-[0_12px_40px_rgba(6,182,212,0.6)]">
     
     <!-- Image Wrapper -->
-    <div class="relative h-48 w-full overflow-hidden rounded-xl bg-gray-100 dark:bg-slate-800">
-      <img :src="product.thumbnail" :alt="product.title" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
-      <div v-if="product.discountPercentage > 10" class="absolute top-2 left-2 bg-rose-500 text-white text-xs font-bold px-2 py-1 rounded-md">
+    <div class="relative h-48 w-full overflow-hidden rounded-xl bg-gray-100 dark:bg-slate-800 animate-levitate shadow-inner">
+      <template v-if="!imageError && product.thumbnail">
+        <img 
+          :src="resolvedImage" 
+          :alt="product.title" 
+          @error="handleImageError"
+          class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" 
+          loading="lazy" 
+        />
+      </template>
+      <template v-else>
+        <!-- Themed Fallback Placeholder -->
+        <div class="flex flex-col items-center justify-center h-full w-full bg-gradient-to-br from-indigo-900/50 to-slate-900/50 border border-cyan-500/20 shadow-[inset_0_0_20px_rgba(34,211,238,0.1)]">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-cyan-400 mb-2 opacity-80 animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+          </svg>
+          <span class="text-[10px] font-bold text-cyan-400 tracking-widest uppercase">Antigravity Tech Loading...</span>
+        </div>
+      </template>
+
+      <div v-if="product.discountPercentage > 10" class="absolute top-2 left-2 bg-rose-500 text-white text-xs font-bold px-2 py-1 rounded-md z-10">
         -{{ Math.round(product.discountPercentage) }}%
       </div>
     </div>
@@ -43,8 +61,41 @@
 </template>
 
 <script setup lang="ts">
+import { ref, computed } from 'vue'
 import type { Product } from '@/types'
 
-defineProps<{ product: Product }>()
+const props = defineProps<{ product: Product }>()
 defineEmits<{ (e: 'add-to-cart', p: Product): void }>()
+
+const imageError = ref(false)
+
+const handleImageError = () => {
+  imageError.value = true
+}
+
+/**
+ * Dynamic Image Resolver using Vite's import.meta.url
+ * Handles external URLs (like DummyJSON) or local assets in src/assets
+ */
+const getImageUrl = (path: string) => {
+  if (!path) return ''
+  
+  // If it's already an external HTTP URL or data URI, return as-is
+  if (path.startsWith('http') || path.startsWith('data:')) {
+    return path
+  }
+  
+  // Otherwise, treat it as a local asset. Remove leading slash if present.
+  const cleanPath = path.startsWith('/') ? path.slice(1) : path
+  
+  // Use Vite's native URL resolution to dynamically import the local asset from src/assets/
+  try {
+    return new URL(`../assets/${cleanPath}`, import.meta.url).href
+  } catch (err) {
+    console.error(`Failed to resolve image path: ${path}`, err)
+    return path // Fallback to raw string, which will trigger the @error handler if it fails
+  }
+}
+
+const resolvedImage = computed(() => getImageUrl(props.product.thumbnail))
 </script>
