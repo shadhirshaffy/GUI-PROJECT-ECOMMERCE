@@ -5,9 +5,9 @@
     <div class="container mx-auto px-4 py-16">
       <div class="text-center mb-16">
         <h2 class="text-4xl md:text-5xl font-black text-slate-900 dark:text-white tracking-tight">
-          Featured <span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-cyan-400 dark:to-blue-500">Products</span>
+          Featured <span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-cyan-400 dark:to-blue-500">Electronics</span>
         </h2>
-        <p class="mt-4 text-xl text-gray-600 dark:text-gray-400">Premium machines engineered for professional applications.</p>
+        <p class="mt-4 text-xl text-gray-600 dark:text-gray-400">Premium tech gear engineered for professionals.</p>
       </div>
 
       <div v-if="loading" class="flex justify-center items-center py-20">
@@ -37,7 +37,7 @@ import Hero from '@/components/ui/Hero.vue'
 import BaseCard from '@/components/ui/BaseCard.vue'
 import { useCartStore } from '@/stores/cart'
 import type { Product } from '@/types'
-import { mockTailoringMachines } from '@/data/products'
+import { mockElectronics } from '@/data/products'
 
 const cartStore = useCartStore()
 const products = ref<Product[]>([])
@@ -48,7 +48,7 @@ onMounted(async () => {
   try {
     // Simulate network delay
     await new Promise(resolve => setTimeout(resolve, 800))
-    products.value = mockTailoringMachines
+    products.value = mockElectronics
   } catch (e: any) {
     error.value = e.message || 'An error occurred'
   } finally {

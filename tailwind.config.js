@@ -7,6 +7,12 @@ export default {
   ],
   theme: {
     extend: {
+      colors: {
+        'theme-gold': '#d4af37', // Approximation of the gold color in the screenshot
+        'theme-gold-hover': '#b5952f',
+        'theme-dark-bg': '#121212',
+        'theme-dark-card': '#1a1a1a',
+      },
       animation: {
         levitate: 'levitate 4s ease-in-out infinite',
       },
