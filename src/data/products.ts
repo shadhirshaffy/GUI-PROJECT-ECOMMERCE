@@ -11,7 +11,7 @@ export const mockElectronics: Product[] = [
     stock: 15,
     brand: "Apple",
     category: "Laptops",
-    thumbnail: "https://loremflickr.com/600/400/macbook,pro?lock=101",
+    thumbnail: "/images/products/MacBook Pro 16-inch M3 Max.webp",
     images: []
   },
   {
@@ -24,7 +24,7 @@ export const mockElectronics: Product[] = [
     stock: 25,
     brand: "Dell",
     category: "Laptops",
-    thumbnail: "https://loremflickr.com/600/400/dell,laptop?lock=102",
+    thumbnail: "/images/products/Dell XPS 15.jpg",
     images: []
   },
   {
@@ -37,7 +37,7 @@ export const mockElectronics: Product[] = [
     stock: 50,
     brand: "Apple",
     category: "Smartphones",
-    thumbnail: "https://loremflickr.com/600/400/iphone?lock=103",
+    thumbnail: "/images/products/iPhone 15 Pro Max.jpg",
     images: []
   },
   {
@@ -50,7 +50,7 @@ export const mockElectronics: Product[] = [
     stock: 40,
     brand: "Samsung",
     category: "Smartphones",
-    thumbnail: "https://loremflickr.com/600/400/samsung,galaxy?lock=104",
+    thumbnail: "/images/products/Samsung Galaxy S24 Ultra.jpg",
     images: []
   },
   {
@@ -63,7 +63,7 @@ export const mockElectronics: Product[] = [
     stock: 60,
     brand: "Sony",
     category: "Accessories",
-    thumbnail: "https://loremflickr.com/600/400/headphones?lock=105",
+    thumbnail: "/images/products/Sony WH-1000XM5.webp",
     images: []
   },
   {
@@ -76,7 +76,7 @@ export const mockElectronics: Product[] = [
     stock: 120,
     brand: "Logitech",
     category: "Accessories",
-    thumbnail: "https://loremflickr.com/600/400/mouse,computer?lock=106",
+    thumbnail: "/images/products/Logitech MX Master 3S.webp",
     images: []
   },
   {
@@ -89,7 +89,7 @@ export const mockElectronics: Product[] = [
     stock: 35,
     brand: "Keychron",
     category: "Accessories",
-    thumbnail: "https://loremflickr.com/600/400/keyboard?lock=107",
+    thumbnail: "/images/products/Keychron Q1 Pro.webp",
     images: []
   },
   {
@@ -102,7 +102,7 @@ export const mockElectronics: Product[] = [
     stock: 20,
     brand: "Apple",
     category: "Tablets",
-    thumbnail: "https://loremflickr.com/600/400/ipad?lock=108",
+    thumbnail: "/images/products/iPad Pro 12.9-inch.png",
     images: []
   },
   {
@@ -115,7 +115,7 @@ export const mockElectronics: Product[] = [
     stock: 18,
     brand: "ASUS",
     category: "Laptops",
-    thumbnail: "https://loremflickr.com/600/400/gaming,laptop?lock=109",
+    thumbnail: "/images/products/ASUS ROG Zephyrus G14.webp",
     images: []
   },
   {
@@ -128,7 +128,7 @@ export const mockElectronics: Product[] = [
     stock: 30,
     brand: "Google",
     category: "Smartphones",
-    thumbnail: "https://loremflickr.com/600/400/pixel,phone?lock=110",
+    thumbnail: "/images/products/Google Pixel 8 Pro.jpg",
     images: []
   },
   {
@@ -141,7 +141,7 @@ export const mockElectronics: Product[] = [
     stock: 22,
     brand: "LG",
     category: "Accessories",
-    thumbnail: "https://loremflickr.com/600/400/monitor?lock=111",
+    thumbnail: "/images/products/LG UltraGear 27-inch OLED.jpg",
     images: []
   },
   {
@@ -154,7 +154,137 @@ export const mockElectronics: Product[] = [
     stock: 85,
     brand: "Samsung",
     category: "Accessories",
-    thumbnail: "https://loremflickr.com/600/400/ssd?lock=112",
+    thumbnail: "/images/products/Samsung T7 Shield 2TB.jpg",
+    images: []
+  },
+  {
+    id: 13,
+    title: "SAMSUNG Galaxy S26 Ultra 5G",
+    description: "The future of mobile innovation. Featuring the Snapdragon 8 Gen 5, a revolutionary 300MP camera system, and an ultra-bright Dynamic AMOLED 3X display.",
+    price: 1399.99,
+    discountPercentage: 0,
+    rating: 5.0,
+    stock: 10,
+    brand: "Samsung",
+    category: "Smartphones",
+    thumbnail: "/images/products/SAMSUNG Galaxy S26 Ultra 5G.png",
+    images: []
+  },
+  {
+    id: 14,
+    title: "SAMSUNG Galaxy A17 5G",
+    description: "Incredible performance meets value. The Galaxy A17 5G features a vivid 90Hz display, versatile quad-camera system, and a long-lasting 5000mAh battery.",
+    price: 349.00,
+    discountPercentage: 5,
+    rating: 4.5,
+    stock: 45,
+    brand: "Samsung",
+    category: "Smartphones",
+    thumbnail: "/images/products/SAMSUNG Galaxy A17 5G.jpg",
+    images: []
+  },
+  {
+    id: 15,
+    title: "SAMSUNG Galaxy A56 5G",
+    description: "The perfect balance of power and style. Featuring a stunning Super AMOLED 120Hz display, enhanced nightography, and an AI-powered octa-core processor.",
+    price: 499.00,
+    discountPercentage: 8,
+    rating: 4.7,
+    stock: 30,
+    brand: "Samsung",
+    category: "Smartphones",
+    thumbnail: "/images/products/SAMSUNG Galaxy A56 5G.jpg",
+    images: []
+  },
+  {
+    id: 16,
+    title: "SAMSUNG Galaxy A36 5G",
+    description: "Reliable, fast, and built to last. The Galaxy A36 5G offers a massive 5000mAh battery, crisp FHD+ display, and seamless 5G connectivity for all your needs.",
+    price: 399.00,
+    discountPercentage: 10,
+    rating: 4.6,
+    stock: 40,
+    brand: "Samsung",
+    category: "Smartphones",
+    thumbnail: "/images/products/SAMSUNG Galaxy A36 5G.jpg",
+    images: []
+  },
+  {
+    id: 17,
+    title: "iPhone 17 Pro Max",
+    description: "The ultimate iPhone. Featuring the A19 Pro chip, a new titanium design, and the most advanced camera system ever seen on a smartphone.",
+    price: 1299.00,
+    discountPercentage: 0,
+    rating: 5.0,
+    stock: 15,
+    brand: "Apple",
+    category: "Smartphones",
+    thumbnail: "/images/products/iPhone 17 Pro Max.jpg",
+    images: []
+  },
+  {
+    id: 18,
+    title: "iPhone 17 Pro",
+    description: "Pro performance in a compact size. A19 Pro chip, ProMotion display, and professional-grade photography.",
+    price: 1099.00,
+    discountPercentage: 0,
+    rating: 4.9,
+    stock: 20,
+    brand: "Apple",
+    category: "Smartphones",
+    thumbnail: "/images/products/iPhone 17 Pro.jpg",
+    images: []
+  },
+  {
+    id: 19,
+    title: "iPhone 17 Air",
+    description: "Incredibly thin. Impossibly powerful. The all-new ultra-slim design that redefines what a smartphone can be.",
+    price: 999.00,
+    discountPercentage: 0,
+    rating: 4.8,
+    stock: 25,
+    brand: "Apple",
+    category: "Smartphones",
+    thumbnail: "/images/products/iPhone 17 Air.jpg",
+    images: []
+  },
+  {
+    id: 20,
+    title: "iPhone 16 Pro Max",
+    description: "Go big with the A18 Pro chip, larger display, and industry-leading battery life.",
+    price: 1199.00,
+    discountPercentage: 5,
+    rating: 4.9,
+    stock: 30,
+    brand: "Apple",
+    category: "Smartphones",
+    thumbnail: "/images/products/iPhone 16 Pro Max.jpg",
+    images: []
+  },
+  {
+    id: 21,
+    title: "iPhone 16 Pro",
+    description: "The power of Pro. A18 Pro chip, Grade 5 Titanium, and the new Camera Control button.",
+    price: 999.00,
+    discountPercentage: 5,
+    rating: 4.8,
+    stock: 35,
+    brand: "Apple",
+    category: "Smartphones",
+    thumbnail: "/images/products/iPhone 16 Pro.jpg",
+    images: []
+  },
+  {
+    id: 22,
+    title: "iPhone 16",
+    description: "Built for Apple Intelligence. A18 chip, Action button, and stunning new colors.",
+    price: 799.00,
+    discountPercentage: 10,
+    rating: 4.7,
+    stock: 50,
+    brand: "Apple",
+    category: "Smartphones",
+    thumbnail: "/images/products/iPhone 16.jpg",
     images: []
   }
 ];

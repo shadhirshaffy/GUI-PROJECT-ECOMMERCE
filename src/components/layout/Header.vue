@@ -27,7 +27,7 @@
     <!-- Main Navigation -->
     <div class="container mx-auto px-4 h-20 flex items-center justify-between">
       <!-- Logo -->
-      <router-link to="/" class="flex items-center space-x-3 text-indigo-700 dark:text-cyan-400 group">
+      <router-link to="/" @click="productStore.setCategory(null)" class="flex items-center space-x-3 text-indigo-700 dark:text-cyan-400 group">
         <div class="relative w-10 h-10 flex items-center justify-center bg-indigo-100 dark:bg-slate-800 rounded-lg group-hover:scale-105 transition-transform duration-300">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="M14.364 7.636a3.003 3.003 0 0 1 0 4.242M5.636 7.636a3.003 3.003 0 0 1 4.242 0M5.636 16.364a3.003 3.003 0 0 1 4.242 0M14.364 16.364a3.003 3.003 0 0 1 0-4.242M8.136 10.136 15.864 17.864M15.864 10.136 8.136 17.864M12 12h.01" />
@@ -49,9 +49,10 @@
           <!-- Dropdown Area -->
           <div class="absolute top-full left-0 w-56 bg-white dark:bg-slate-800 rounded-lg shadow-xl border border-gray-100 dark:border-slate-700 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top -translate-y-2 group-hover:translate-y-0">
             <div class="py-2">
-              <a href="#" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-indigo-50 dark:hover:bg-slate-700 hover:text-indigo-600 dark:hover:text-cyan-400">Laptops</a>
-              <a href="#" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-indigo-50 dark:hover:bg-slate-700 hover:text-indigo-600 dark:hover:text-cyan-400">Smartphones</a>
-              <a href="#" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-indigo-50 dark:hover:bg-slate-700 hover:text-indigo-600 dark:hover:text-cyan-400">Accessories</a>
+              <button @click="handleCategoryClick('Laptops')" class="w-full text-left block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-indigo-50 dark:hover:bg-slate-700 hover:text-indigo-600 dark:hover:text-cyan-400">Laptops</button>
+              <button @click="handleCategoryClick('Smartphones')" class="w-full text-left block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-indigo-50 dark:hover:bg-slate-700 hover:text-indigo-600 dark:hover:text-cyan-400">Smartphones</button>
+              <button @click="handleCategoryClick('Accessories')" class="w-full text-left block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-indigo-50 dark:hover:bg-slate-700 hover:text-indigo-600 dark:hover:text-cyan-400">Accessories</button>
+              <button @click="handleCategoryClick(null)" class="w-full text-left block px-4 py-2 text-sm font-bold text-indigo-600 dark:text-cyan-400 border-t border-gray-100 dark:border-slate-700 mt-1">All Products</button>
             </div>
           </div>
         </div>
@@ -108,13 +109,22 @@
 
 <script setup lang="ts">
 import { inject } from 'vue'
+import { useRouter } from 'vue-router'
 import { useCartStore } from '@/stores/cart'
 import { useDarkMode } from '@/composables/useDarkMode'
 import { useAuthStore } from '@/stores/auth'
+import { useProductStore } from '@/stores/products'
 
 const cartStore = useCartStore()
 const authStore = useAuthStore()
+const productStore = useProductStore()
 const isCartOpen = inject('isCartOpen') as { value: boolean }
+const router = useRouter()
 
 const { isDark, toggleTheme: toggleDarkMode } = useDarkMode()
+
+const handleCategoryClick = (category: string | null) => {
+  productStore.setCategory(category)
+  router.push('/')
+}
 </script>

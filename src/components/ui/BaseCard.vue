@@ -80,20 +80,17 @@ const handleImageError = () => {
 const getImageUrl = (path: string) => {
   if (!path) return ''
   
-  // If it's already an external HTTP URL or data URI, return as-is
-  if (path.startsWith('http') || path.startsWith('data:')) {
+  // If it's an external URL, data URI, or a public root path (starting with /), return as-is
+  if (path.startsWith('http') || path.startsWith('data:') || path.startsWith('/')) {
     return path
   }
   
-  // Otherwise, treat it as a local asset. Remove leading slash if present.
-  const cleanPath = path.startsWith('/') ? path.slice(1) : path
-  
-  // Use Vite's native URL resolution to dynamically import the local asset from src/assets/
+  // For other relative paths, try to resolve from assets (fallback)
   try {
-    return new URL(`../assets/${cleanPath}`, import.meta.url).href
+    // Note: This project currently uses the public folder for product images
+    return new URL(`../assets/${path}`, import.meta.url).href
   } catch (err) {
-    console.error(`Failed to resolve image path: ${path}`, err)
-    return path // Fallback to raw string, which will trigger the @error handler if it fails
+    return path
   }
 }
 
