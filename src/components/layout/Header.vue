@@ -51,6 +51,7 @@
             <div class="py-2">
               <button @click="handleCategoryClick('Laptops')" class="w-full text-left block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-indigo-50 dark:hover:bg-slate-700 hover:text-indigo-600 dark:hover:text-cyan-400">Laptops</button>
               <button @click="handleCategoryClick('Smartphones')" class="w-full text-left block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-indigo-50 dark:hover:bg-slate-700 hover:text-indigo-600 dark:hover:text-cyan-400">Smartphones</button>
+              <button @click="handleCategoryClick('Tablets')" class="w-full text-left block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-indigo-50 dark:hover:bg-slate-700 hover:text-indigo-600 dark:hover:text-cyan-400">Tablets</button>
               <button @click="handleCategoryClick('Accessories')" class="w-full text-left block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-indigo-50 dark:hover:bg-slate-700 hover:text-indigo-600 dark:hover:text-cyan-400">Accessories</button>
               <button @click="handleCategoryClick(null)" class="w-full text-left block px-4 py-2 text-sm font-bold text-indigo-600 dark:text-cyan-400 border-t border-gray-100 dark:border-slate-700 mt-1">All Products</button>
             </div>
@@ -60,12 +61,30 @@
 
       <!-- Actions -->
       <div class="flex items-center space-x-5">
-        <!-- Search -->
-        <button class="text-gray-500 hover:text-indigo-600 dark:text-gray-400 dark:hover:text-cyan-400 transition-colors p-2 rounded-full hover:bg-gray-100 dark:hover:bg-slate-800" aria-label="Search">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-          </svg>
-        </button>
+        <div class="relative flex items-center">
+          <div :class="[
+            'flex items-center bg-gray-100 dark:bg-slate-800 rounded-full transition-all duration-300 overflow-hidden',
+            isSearchExpanded ? 'w-48 md:w-64 px-3' : 'w-10 px-0'
+          ]">
+            <input 
+              v-model="productStore.searchQuery"
+              type="text" 
+              placeholder="Search products..." 
+              class="bg-transparent border-none focus:ring-0 text-sm w-full text-gray-700 dark:text-gray-200 placeholder-gray-500"
+              @blur="onSearchBlur"
+              ref="searchInput"
+            />
+            <button 
+              @click="toggleSearch" 
+              class="text-gray-500 hover:text-indigo-600 dark:text-gray-400 dark:hover:text-cyan-400 p-2 flex-shrink-0"
+              aria-label="Search"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </button>
+          </div>
+        </div>
 
         <!-- Dark Mode Toggle -->
         <button @click="toggleDarkMode" class="text-gray-500 hover:text-indigo-600 dark:text-gray-400 dark:hover:text-cyan-400 transition-colors p-2 rounded-full hover:bg-gray-100 dark:hover:bg-slate-800" aria-label="Toggle Dark Mode">
@@ -108,7 +127,7 @@
 </template>
 
 <script setup lang="ts">
-import { inject } from 'vue'
+import { inject, ref, nextTick } from 'vue'
 import { useRouter } from 'vue-router'
 import { useCartStore } from '@/stores/cart'
 import { useDarkMode } from '@/composables/useDarkMode'
@@ -122,6 +141,26 @@ const isCartOpen = inject('isCartOpen') as { value: boolean }
 const router = useRouter()
 
 const { isDark, toggleTheme: toggleDarkMode } = useDarkMode()
+
+const isSearchExpanded = ref(false)
+const searchInput = ref<HTMLInputElement | null>(null)
+
+const toggleSearch = () => {
+  if (!isSearchExpanded.value) {
+    isSearchExpanded.value = true
+    nextTick(() => {
+      searchInput.value?.focus()
+    })
+  } else if (!productStore.searchQuery) {
+    isSearchExpanded.value = false
+  }
+}
+
+const onSearchBlur = () => {
+  if (!productStore.searchQuery) {
+    isSearchExpanded.value = false
+  }
+}
 
 const handleCategoryClick = (category: string | null) => {
   productStore.setCategory(category)

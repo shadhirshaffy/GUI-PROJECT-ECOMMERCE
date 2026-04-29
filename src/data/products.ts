@@ -286,5 +286,44 @@ export const mockElectronics: Product[] = [
     category: "Smartphones",
     thumbnail: "/images/products/iPhone 16.jpg",
     images: []
+  },
+  {
+    id: 23,
+    title: "Samsung Galaxy Tab S11 Ultra",
+    description: "The peak of tablet innovation. Featuring a massive 14.6-inch Dynamic AMOLED 2X display, Snapdragon 8 Gen 4, and the ultra-low latency S Pen.",
+    price: 1299.99,
+    discountPercentage: 0,
+    rating: 5.0,
+    stock: 10,
+    brand: "Samsung",
+    category: "Tablets",
+    thumbnail: "/images/products/Samsung Galaxy Tab S11 Ultra.webp",
+    images: []
+  },
+  {
+    id: 24,
+    title: "Samsung Galaxy Tab S10 Ultra",
+    description: "Power meets portability. A stunning 14.6-inch screen, powerful performance for multitasking, and a refined titanium-grade build.",
+    price: 1199.99,
+    discountPercentage: 5,
+    rating: 4.9,
+    stock: 15,
+    brand: "Samsung",
+    category: "Tablets",
+    thumbnail: "/images/products/Samsung Galaxy Tab S10 Ultra.webp",
+    images: []
+  },
+  {
+    id: 25,
+    title: "Samsung Galaxy Tab S9 Ultra",
+    description: "The ultimate productivity tool. Water and dust resistant (IP68), featuring a crystal-clear display and pro-level creative capabilities.",
+    price: 1099.99,
+    discountPercentage: 10,
+    rating: 4.8,
+    stock: 20,
+    brand: "Samsung",
+    category: "Tablets",
+    thumbnail: "/images/products/Samsung Galaxy Tab S9 Ultra.webp",
+    images: []
   }
 ];

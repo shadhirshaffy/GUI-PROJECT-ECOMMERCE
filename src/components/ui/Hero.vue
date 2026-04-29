@@ -17,45 +17,45 @@
               <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 dark:bg-cyan-400 opacity-75"></span>
               <span class="relative inline-flex rounded-full h-2 w-2 bg-indigo-500 dark:bg-cyan-500"></span>
             </span>
-            <span class="text-xs font-semibold tracking-wider text-indigo-700 dark:text-cyan-400 uppercase">Commercial Grade Equipment</span>
+            <span class="text-xs font-semibold tracking-wider text-indigo-700 dark:text-cyan-400 uppercase">Premium Consumer Electronics</span>
           </div>
           
           <div class="space-y-4">
             <h1 class="text-5xl md:text-6xl lg:text-7xl font-black text-slate-900 dark:text-white tracking-tight leading-tight">
-              Future of <br/>
-              <span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-cyan-400 dark:to-blue-500">Propulsion</span>
+              The Next Level <br/>
+              <span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-cyan-400 dark:to-blue-500">of Technology</span>
             </h1>
             <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 font-light max-w-lg border-l-4 border-indigo-500 dark:border-cyan-400 pl-4">
-              Antigravity & Creative Tech
+              Premium Smartphones & Laptops
             </p>
           </div>
           
           <p class="text-gray-500 dark:text-gray-400 max-w-lg leading-relaxed">
-            Engineered for precision, designed for the future. Experience the next generation of industrial machineries with state-of-the-art antigravity capabilities and commercial-grade durability.
+            Experience the pinnacle of innovation with our curated selection of high-end mobile devices and professional computing gear. Engineered for performance, designed for excellence.
           </p>
 
           <div class="flex flex-wrap gap-4 pt-2">
-            <button class="px-8 py-4 bg-indigo-600 hover:bg-indigo-700 dark:bg-cyan-500 dark:hover:bg-cyan-400 text-white dark:text-slate-900 font-bold rounded-lg shadow-lg hover:shadow-indigo-500/30 dark:hover:shadow-cyan-500/30 transition-all duration-300 transform hover:-translate-y-1">
-              View Products
+            <button @click="scrollToProducts" class="px-8 py-4 bg-indigo-600 hover:bg-indigo-700 dark:bg-cyan-500 dark:hover:bg-cyan-400 text-white dark:text-slate-900 font-bold rounded-lg shadow-lg hover:shadow-indigo-500/30 dark:hover:shadow-cyan-500/30 transition-all duration-300 transform hover:-translate-y-1">
+              Shop Now
             </button>
             <button class="px-8 py-4 bg-white dark:bg-slate-800 hover:bg-gray-50 dark:hover:bg-slate-700 text-gray-900 dark:text-white font-semibold rounded-lg border border-gray-200 dark:border-slate-700 shadow-sm transition-all duration-300">
-              Technical Specs
+              New Arrivals
             </button>
           </div>
           
           <!-- Metrics -->
           <div class="grid grid-cols-3 gap-6 pt-8 w-full max-w-md border-t border-gray-100 dark:border-slate-800 mt-8">
             <div>
-              <p class="text-3xl font-bold text-indigo-600 dark:text-cyan-400">99<span class="text-lg">%</span></p>
-              <p class="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide mt-1">Efficiency</p>
+              <p class="text-3xl font-bold text-indigo-600 dark:text-cyan-400">100<span class="text-lg">%</span></p>
+              <p class="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide mt-1">Genuine</p>
             </div>
             <div>
-              <p class="text-3xl font-bold text-indigo-600 dark:text-cyan-400">0<span class="text-lg">G</span></p>
-              <p class="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide mt-1">Friction</p>
+              <p class="text-3xl font-bold text-indigo-600 dark:text-cyan-400">5<span class="text-lg">G</span></p>
+              <p class="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide mt-1">Ready</p>
             </div>
             <div>
-              <p class="text-3xl font-bold text-indigo-600 dark:text-cyan-400">24<span class="text-lg">/7</span></p>
-              <p class="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide mt-1">Support</p>
+              <p class="text-3xl font-bold text-indigo-600 dark:text-cyan-400">2<span class="text-lg">YR</span></p>
+              <p class="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide mt-1">Warranty</p>
             </div>
           </div>
         </div>
@@ -68,8 +68,8 @@
           <div class="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-indigo-500 dark:border-cyan-400 z-20 m-4 rounded-br-lg opacity-50"></div>
           
           <img 
-            src="/futuristic-machine.png" 
-            alt="Futuristic Antigravity Machine" 
+            src="/hero_tech_electronics_1777379709590.png" 
+            alt="Premium Tech Devices" 
             class="absolute inset-0 w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-700 ease-out"
           />
           
@@ -77,8 +77,8 @@
           <div class="absolute bottom-6 left-6 right-6 z-20 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md p-4 rounded-xl border border-white/20 dark:border-slate-700/50 transform translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
             <div class="flex justify-between items-center">
               <div>
-                <p class="text-xs text-indigo-600 dark:text-cyan-400 font-bold uppercase tracking-wider mb-1">Model X-7</p>
-                <p class="text-sm text-slate-800 dark:text-slate-200 font-medium">Levitation Engine Core</p>
+                <p class="text-xs text-indigo-600 dark:text-cyan-400 font-bold uppercase tracking-wider mb-1">Latest Flagships</p>
+                <p class="text-sm text-slate-800 dark:text-slate-200 font-medium">iPhone 17 & Galaxy S26</p>
               </div>
               <div class="h-8 w-8 rounded-full bg-indigo-100 dark:bg-slate-800 flex items-center justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-indigo-600 dark:text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -94,5 +94,10 @@
 </template>
 
 <script setup lang="ts">
-// Hero component logic
+const scrollToProducts = () => {
+  const productsElement = document.querySelector('.container.mx-auto.px-4.py-16')
+  if (productsElement) {
+    productsElement.scrollIntoView({ behavior: 'smooth' })
+  }
+}
 </script>
