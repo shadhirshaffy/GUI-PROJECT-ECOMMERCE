@@ -4,7 +4,7 @@ import { mockElectronics } from '@/data/products'
 import type { Product } from '@/types'
 
 export const useProductStore = defineStore('products', () => {
-  const allProducts = ref<Product[]>(mockElectronics)
+  const allProducts = ref<Product[]>([])
   const selectedCategory = ref<string | null>(null)
   const searchQuery = ref('')
 
@@ -12,7 +12,7 @@ export const useProductStore = defineStore('products', () => {
     let products = allProducts.value
 
     if (selectedCategory.value) {
-      products = products.filter(p => p.category === selectedCategory.value)
+      products = products.filter(p => p.category.toLowerCase() === selectedCategory.value.toLowerCase())
     }
 
     if (searchQuery.value.trim()) {
@@ -27,11 +27,27 @@ export const useProductStore = defineStore('products', () => {
     return products
   })
 
+  const isLoading = ref(false)
+  const error = ref<string | null>(null)
+
+  const fetchProducts = async () => {
+    isLoading.value = true
+    error.value = null
+    try {
+      const response = await fetch('https://dummyjson.com/products?limit=100')
+      // For more variety, we could fetch multiple categories or just /products
+      // But let's stick to a robust fetch.
+      const data = await response.json()
+      allProducts.value = data.products
+    } catch (e) {
+      error.value = e instanceof Error ? e.message : 'Failed to fetch products'
+    } finally {
+      isLoading.value = false
+    }
+  }
+
   const setCategory = (category: string | null) => {
     selectedCategory.value = category
-    // Clear search when switching categories? Usually better to keep it or clear it. 
-    // Let's clear it for a fresh view, or keep it for refinement.
-    // User asked for search feature, usually they expect search to work across categories.
   }
 
   const setSearchQuery = (query: string) => {
@@ -43,7 +59,10 @@ export const useProductStore = defineStore('products', () => {
     selectedCategory,
     searchQuery,
     filteredProducts,
+    isLoading,
+    error,
     setCategory,
-    setSearchQuery
+    setSearchQuery,
+    fetchProducts
   }
 })

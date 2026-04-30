@@ -23,12 +23,12 @@
         </div>
       </div>
 
-      <div v-if="loading" class="flex justify-center items-center py-20">
+      <div v-if="productStore.isLoading" class="flex justify-center items-center py-20">
       <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600 dark:border-cyan-400"></div>
     </div>
 
-    <div v-else-if="error" class="text-center py-20 text-rose-500">
-      <p>{{ error }}</p>
+    <div v-else-if="productStore.error" class="text-center py-20 text-rose-500">
+      <p>{{ productStore.error }}</p>
     </div>
 
     <div v-else class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
@@ -54,17 +54,10 @@ import type { Product } from '@/types'
 
 const cartStore = useCartStore()
 const productStore = useProductStore()
-const loading = ref(true)
-const error = ref('')
 
 onMounted(async () => {
-  try {
-    // Simulate network delay
-    await new Promise(resolve => setTimeout(resolve, 800))
-  } catch (e: any) {
-    error.value = e.message || 'An error occurred'
-  } finally {
-    loading.value = false
+  if (productStore.allProducts.length === 0) {
+    await productStore.fetchProducts()
   }
 })
 </script>

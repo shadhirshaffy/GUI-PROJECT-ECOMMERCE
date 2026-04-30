@@ -1,5 +1,5 @@
 <template>
-  <div class="group flex flex-col justify-between overflow-hidden rounded-2xl p-4
+  <div @click="router.push(`/product/${product.id}`)" class="group cursor-pointer active:scale-[0.98] flex flex-col justify-between overflow-hidden rounded-2xl p-4
               bg-white/50 backdrop-blur-md border border-white/40 
               shadow-[0_8px_32px_rgba(31,38,135,0.1)] 
               dark:bg-slate-800/40 dark:border-cyan-500/30 dark:shadow-[0_8px_32px_rgba(6,182,212,0.3)]
@@ -51,7 +51,7 @@
         </span>
       </div>
       <button 
-        @click="$emit('add-to-cart', product)"
+        @click.stop="$emit('add-to-cart', product)"
         class="rounded-xl bg-indigo-600 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-indigo-600/30 transition-all hover:bg-indigo-500 hover:-translate-y-1 active:translate-y-0 dark:bg-cyan-600 dark:hover:bg-cyan-500 dark:shadow-cyan-600/30"
       >
         Add to Cart
@@ -62,7 +62,10 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
+import { useRouter } from 'vue-router'
 import type { Product } from '@/types'
+
+const router = useRouter()
 
 const props = defineProps<{ product: Product }>()
 defineEmits<{ (e: 'add-to-cart', p: Product): void }>()

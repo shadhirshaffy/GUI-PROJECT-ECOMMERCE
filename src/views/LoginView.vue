@@ -10,6 +10,15 @@
         <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
           {{ isLoginMode ? 'Enter your credentials to continue' : 'Provide details for clearance creation' }}
         </p>
+        <!-- Credential Tip -->
+        <div v-if="isLoginMode" class="mt-4 p-2 bg-indigo-50 dark:bg-slate-800/50 rounded-lg border border-indigo-100 dark:border-cyan-400/20 text-[10px] text-indigo-600 dark:text-cyan-400 font-mono">
+          TIP: Use "emilys" / "emilyspass"
+        </div>
+      </div>
+
+      <!-- Error Message -->
+      <div v-if="authStore.error" class="mb-6 p-3 bg-rose-50 dark:bg-rose-900/20 border border-rose-200 dark:border-rose-500/30 rounded-lg text-xs text-rose-600 dark:text-rose-400 animate-pulse">
+        {{ authStore.error }}
       </div>
 
       <form @submit.prevent="handleSubmit" class="space-y-6">
@@ -35,13 +44,13 @@
         </Transition>
 
         <div>
-          <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email</label>
+          <label for="username" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Username</label>
           <input 
-            type="email" 
-            id="email" 
-            v-model="email"
+            type="text" 
+            id="username" 
+            v-model="username"
             class="w-full px-4 py-3 rounded-lg bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm border border-gray-200 dark:border-slate-700 text-slate-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-400 dark:focus:ring-cyan-500 focus:border-cyan-400 dark:focus:border-cyan-500 transition-all duration-300 shadow-[0_0_0_0_rgba(34,211,238,0)] focus:shadow-[0_0_15px_rgba(34,211,238,0.5)]"
-            placeholder="operative@apexlanka.com"
+            placeholder="emilys"
             required
           />
         </div>
@@ -84,9 +93,19 @@
 
         <button 
           type="submit" 
-          class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-lg text-sm font-bold text-white bg-indigo-600 hover:bg-indigo-700 dark:bg-cyan-500 dark:text-slate-900 dark:hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-cyan-400 dark:focus:ring-offset-slate-900 transition-all duration-300 transform hover:-translate-y-0.5 hover:shadow-indigo-500/30 dark:hover:shadow-cyan-500/50"
+          :disabled="authStore.isLoading"
+          class="w-full flex justify-center items-center py-3 px-4 border border-transparent rounded-lg shadow-lg text-sm font-bold text-white bg-indigo-600 hover:bg-indigo-700 dark:bg-cyan-500 dark:text-slate-900 dark:hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-cyan-400 dark:focus:ring-offset-slate-900 transition-all duration-300 transform hover:-translate-y-0.5 hover:shadow-indigo-500/30 dark:hover:shadow-cyan-500/50 disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          {{ isLoginMode ? 'Initialize Login sequence' : 'Signup' }}
+          <template v-if="authStore.isLoading">
+            <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white dark:text-slate-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+            Processing...
+          </template>
+          <template v-else>
+            {{ isLoginMode ? 'Initialize Login sequence' : 'Signup' }}
+          </template>
         </button>
       </form>
       
@@ -116,19 +135,20 @@ const authStore = useAuthStore()
 
 const isLoginMode = ref(true)
 const name = ref('')
-const email = ref('')
+const username = ref('')
 const password = ref('')
 
-const handleSubmit = () => {
-  if (isLoginMode.value) {
-    console.log('Login attempt with:', { email: email.value, password: password.value })
-    authStore.login(email.value)
-  } else {
-    console.log('Signup attempt with:', { name: name.value, email: email.value, password: password.value })
-    authStore.login(email.value, name.value)
+const handleSubmit = async () => {
+  try {
+    if (isLoginMode.value) {
+      await authStore.login(username.value, password.value)
+    } else {
+      // Mock signup since DummyJSON doesn't have a real persistent signup
+      await authStore.login(username.value, password.value)
+    }
+    router.push('/')
+  } catch (e) {
+    // Error is handled in the store and displayed in UI
   }
-  
-  // Simulate successful auth and redirect to home page
-  router.push('/')
 }
 </script>

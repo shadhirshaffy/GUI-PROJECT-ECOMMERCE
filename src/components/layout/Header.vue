@@ -99,9 +99,9 @@
         <!-- User Login / Profile -->
         <div v-if="authStore.isAuthenticated" class="flex items-center space-x-2 text-sm font-medium text-gray-700 dark:text-gray-300">
           <div class="w-8 h-8 rounded-full bg-indigo-100 dark:bg-slate-800 text-indigo-600 dark:text-cyan-400 flex items-center justify-center font-bold">
-            {{ authStore.user?.name.charAt(0).toUpperCase() }}
+            {{ authStore.user?.firstName.charAt(0).toUpperCase() }}
           </div>
-          <span class="hidden md:block">{{ authStore.user?.name }}</span>
+          <span class="hidden md:block">{{ authStore.user?.firstName }}</span>
           <button @click="authStore.logout" class="ml-2 text-xs text-gray-500 hover:text-red-500 dark:hover:text-red-400 transition-colors">
             Logout
           </button>
