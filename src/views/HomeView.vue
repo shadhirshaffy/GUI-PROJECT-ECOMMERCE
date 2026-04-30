@@ -4,18 +4,30 @@
     
     <div class="container mx-auto px-4 py-16">
       <div class="text-center mb-16">
-        <h2 class="text-4xl md:text-5xl font-black text-slate-900 dark:text-white tracking-tight">
-          {{ productStore.selectedCategory || 'Featured' }} <span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-cyan-400 dark:to-blue-500">Electronics</span>
+        <h2 class="text-4xl md:text-5xl font-black text-slate-900 dark:text-white tracking-tight text-capitalize">
+          {{ productStore.selectedCategory || 'Discover' }} <span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-cyan-400 dark:to-blue-500">Premium Goods</span>
         </h2>
-        <p class="mt-4 text-xl text-gray-600 dark:text-gray-400">Premium tech gear engineered for professionals.</p>
+        <p class="mt-4 text-xl text-gray-600 dark:text-gray-400">Curated lifestyle essentials engineered for quality.</p>
         
         <!-- Filter Indicator -->
-        <div v-if="productStore.selectedCategory" class="mt-6 flex justify-center">
+        <div v-if="productStore.selectedCategory || productStore.isNewArrivalsOnly" class="mt-6 flex justify-center space-x-4">
           <button 
+            v-if="productStore.selectedCategory"
             @click="productStore.setCategory(null)"
             class="flex items-center space-x-2 px-4 py-2 bg-indigo-50 dark:bg-slate-800 text-indigo-600 dark:text-cyan-400 rounded-full text-sm font-medium hover:bg-indigo-100 dark:hover:bg-slate-700 transition-colors"
           >
             <span>Filtering by: {{ productStore.selectedCategory }}</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+
+          <button 
+            v-if="productStore.isNewArrivalsOnly"
+            @click="productStore.setNewArrivals(false)"
+            class="flex items-center space-x-2 px-4 py-2 bg-rose-50 dark:bg-rose-900/20 text-rose-600 dark:text-rose-400 rounded-full text-sm font-medium hover:bg-rose-100 dark:hover:bg-rose-900/30 transition-colors border border-rose-100 dark:border-rose-500/30"
+          >
+            <span>New Arrivals</span>
             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
             </svg>

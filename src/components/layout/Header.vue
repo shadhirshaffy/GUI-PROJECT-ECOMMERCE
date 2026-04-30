@@ -19,7 +19,7 @@
           </span>
         </div>
         <div class="mt-2 sm:mt-0 text-xs text-gray-300 tracking-wider uppercase font-semibold">
-          Premium Electronics Store
+          Premium Global Marketplace
         </div>
       </div>
     </div>
@@ -49,11 +49,13 @@
           <!-- Dropdown Area -->
           <div class="absolute top-full left-0 w-56 bg-white dark:bg-slate-800 rounded-lg shadow-xl border border-gray-100 dark:border-slate-700 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top -translate-y-2 group-hover:translate-y-0">
             <div class="py-2">
-              <button @click="handleCategoryClick('Laptops')" class="w-full text-left block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-indigo-50 dark:hover:bg-slate-700 hover:text-indigo-600 dark:hover:text-cyan-400">Laptops</button>
-              <button @click="handleCategoryClick('Smartphones')" class="w-full text-left block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-indigo-50 dark:hover:bg-slate-700 hover:text-indigo-600 dark:hover:text-cyan-400">Smartphones</button>
-              <button @click="handleCategoryClick('Tablets')" class="w-full text-left block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-indigo-50 dark:hover:bg-slate-700 hover:text-indigo-600 dark:hover:text-cyan-400">Tablets</button>
-              <button @click="handleCategoryClick('Accessories')" class="w-full text-left block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-indigo-50 dark:hover:bg-slate-700 hover:text-indigo-600 dark:hover:text-cyan-400">Accessories</button>
-              <button @click="handleCategoryClick(null)" class="w-full text-left block px-4 py-2 text-sm font-bold text-indigo-600 dark:text-cyan-400 border-t border-gray-100 dark:border-slate-700 mt-1">All Products</button>
+              <button @click="handleCategoryClick('laptops')" class="w-full text-left block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-indigo-50 dark:hover:bg-slate-700 hover:text-indigo-600 dark:hover:text-cyan-400">Laptops</button>
+              <button @click="handleCategoryClick('smartphones')" class="w-full text-left block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-indigo-50 dark:hover:bg-slate-700 hover:text-indigo-600 dark:hover:text-cyan-400">Smartphones</button>
+              <button @click="handleCategoryClick('beauty')" class="w-full text-left block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-indigo-50 dark:hover:bg-slate-700 hover:text-indigo-600 dark:hover:text-cyan-400">Beauty</button>
+              <button @click="handleCategoryClick('fragrances')" class="w-full text-left block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-indigo-50 dark:hover:bg-slate-700 hover:text-indigo-600 dark:hover:text-cyan-400">Fragrances</button>
+              <button @click="handleCategoryClick('furniture')" class="w-full text-left block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-indigo-50 dark:hover:bg-slate-700 hover:text-indigo-600 dark:hover:text-cyan-400">Furniture</button>
+              <button @click="handleCategoryClick('groceries')" class="w-full text-left block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-indigo-50 dark:hover:bg-slate-700 hover:text-indigo-600 dark:hover:text-cyan-400">Groceries</button>
+              <button @click="handleCategoryClick(null)" class="w-full text-left block px-4 py-2 text-sm font-bold text-indigo-600 dark:text-cyan-400 border-t border-gray-100 dark:border-slate-700 mt-1">All Collections</button>
             </div>
           </div>
         </div>

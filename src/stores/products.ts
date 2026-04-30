@@ -5,11 +5,17 @@ import type { Product } from '@/types'
 
 export const useProductStore = defineStore('products', () => {
   const allProducts = ref<Product[]>([])
+  const isNewArrivalsOnly = ref(false)
   const selectedCategory = ref<string | null>(null)
   const searchQuery = ref('')
 
   const filteredProducts = computed(() => {
     let products = allProducts.value
+
+    if (isNewArrivalsOnly.value) {
+      // Simulate new arrivals as products with higher IDs
+      products = [...products].sort((a, b) => b.id - a.id).slice(0, 12)
+    }
 
     if (selectedCategory.value) {
       products = products.filter(p => p.category.toLowerCase() === selectedCategory.value.toLowerCase())
@@ -47,22 +53,34 @@ export const useProductStore = defineStore('products', () => {
   }
 
   const setCategory = (category: string | null) => {
+    isNewArrivalsOnly.value = false
     selectedCategory.value = category
   }
 
   const setSearchQuery = (query: string) => {
+    isNewArrivalsOnly.value = false
     searchQuery.value = query
+  }
+
+  const setNewArrivals = (val: boolean) => {
+    isNewArrivalsOnly.value = val
+    if (val) {
+      selectedCategory.value = null
+      searchQuery.value = ''
+    }
   }
 
   return {
     allProducts,
     selectedCategory,
     searchQuery,
+    isNewArrivalsOnly,
     filteredProducts,
     isLoading,
     error,
     setCategory,
     setSearchQuery,
+    setNewArrivals,
     fetchProducts
   }
 })

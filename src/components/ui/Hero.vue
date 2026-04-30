@@ -17,28 +17,28 @@
               <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 dark:bg-cyan-400 opacity-75"></span>
               <span class="relative inline-flex rounded-full h-2 w-2 bg-indigo-500 dark:bg-cyan-500"></span>
             </span>
-            <span class="text-xs font-semibold tracking-wider text-indigo-700 dark:text-cyan-400 uppercase">Premium Consumer Electronics</span>
+            <span class="text-xs font-semibold tracking-wider text-indigo-700 dark:text-cyan-400 uppercase">Premium Global Marketplace</span>
           </div>
           
           <div class="space-y-4">
             <h1 class="text-5xl md:text-6xl lg:text-7xl font-black text-slate-900 dark:text-white tracking-tight leading-tight">
               The Next Level <br/>
-              <span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-cyan-400 dark:to-blue-500">of Technology</span>
+              <span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-cyan-400 dark:to-blue-500">of Excellence</span>
             </h1>
             <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 font-light max-w-lg border-l-4 border-indigo-500 dark:border-cyan-400 pl-4">
-              Premium Smartphones & Laptops
+              Premium Lifestyle & Technology
             </p>
           </div>
           
           <p class="text-gray-500 dark:text-gray-400 max-w-lg leading-relaxed">
-            Experience the pinnacle of innovation with our curated selection of high-end mobile devices and professional computing gear. Engineered for performance, designed for excellence.
+            Experience the pinnacle of quality with our curated selection of high-end essentials and professional gear. Engineered for performance, designed for life.
           </p>
 
           <div class="flex flex-wrap gap-4 pt-2">
             <button @click="scrollToProducts" class="px-8 py-4 bg-indigo-600 hover:bg-indigo-700 dark:bg-cyan-500 dark:hover:bg-cyan-400 text-white dark:text-slate-900 font-bold rounded-lg shadow-lg hover:shadow-indigo-500/30 dark:hover:shadow-cyan-500/30 transition-all duration-300 transform hover:-translate-y-1">
               Shop Now
             </button>
-            <button class="px-8 py-4 bg-white dark:bg-slate-800 hover:bg-gray-50 dark:hover:bg-slate-700 text-gray-900 dark:text-white font-semibold rounded-lg border border-gray-200 dark:border-slate-700 shadow-sm transition-all duration-300">
+            <button @click="scrollToNewArrivals" class="px-8 py-4 bg-white dark:bg-slate-800 hover:bg-gray-50 dark:hover:bg-slate-700 text-gray-900 dark:text-white font-semibold rounded-lg border border-gray-200 dark:border-slate-700 shadow-sm transition-all duration-300 transform hover:-translate-y-1">
               New Arrivals
             </button>
           </div>
@@ -94,7 +94,20 @@
 </template>
 
 <script setup lang="ts">
+import { useProductStore } from '@/stores/products'
+
+const productStore = useProductStore()
+
 const scrollToProducts = () => {
+  productStore.setNewArrivals(false)
+  const productsElement = document.querySelector('.container.mx-auto.px-4.py-16')
+  if (productsElement) {
+    productsElement.scrollIntoView({ behavior: 'smooth' })
+  }
+}
+
+const scrollToNewArrivals = () => {
+  productStore.setNewArrivals(true)
   const productsElement = document.querySelector('.container.mx-auto.px-4.py-16')
   if (productsElement) {
     productsElement.scrollIntoView({ behavior: 'smooth' })
